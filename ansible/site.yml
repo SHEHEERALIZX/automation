@@ -1,0 +1,13 @@
+---
+
+- name : Simple Webserver
+  hosts: workers
+  tasks:
+    - name: Run the equivalent of "apt-get update" as a separate step
+      ansible.builtin.apt:
+        update_cache: yes
+        
+    - name: Install http Package
+      apt:
+          name : mini-httpd 
+          state: absent
